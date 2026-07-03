@@ -1,156 +1,1392 @@
+/* =========================================================
+   TASTE OF THE HIMALAYAS
+   DINNER MENU — APPROVED OPTION 4
+========================================================= */
+
 .menu-app {
-  color: black;
-  text-shadow: 1px 1px white;
-  font-family: "Oswald", sans-serif;
-  background: #f5f5f5;
   width: 100%;
-  padding-bottom: 50px;
+  min-height: 100vh;
+  padding: 26px 0 72px;
+  overflow-x: hidden;
+  color: #201713;
+  background: #fcedd5;
+  font-family: "Trebuchet MS", "Gill Sans", "Avenir Next", Arial, sans-serif;
 }
 
-.OrderOline {
-  color: red;
+.menu-poster {
+  position: relative;
+  width: min(1120px, 94%);
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+  background: #fff3df;
+  border: 1px solid rgba(130, 83, 45, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 18px 38px rgba(61, 34, 18, 0.15),
+    0 38px 82px rgba(61, 34, 18, 0.16);
 }
 
-#OnlineLink {
-  color: red;
+.menu-poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(104, 55, 27, 0.18) 0 0.7px,
+      transparent 0.8px
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(104, 55, 27, 0.12) 0 0.6px,
+      transparent 0.7px
+    );
+  background-size: 7px 7px, 11px 11px;
 }
 
-.logo {
-  background: white;
+.poster-hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #15233b;
 }
 
-.logo img {
-  width: 200px;
-  height: 95px;
-  margin-top: -54px;
+.poster-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: saturate(1.08) contrast(1.04);
+  transform: scale(1.015);
 }
 
-.wine-image {
-  background: white;
-  padding-bottom: 10px;
+.poster-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+      90deg,
+      rgba(10, 22, 42, 0.12) 0%,
+      transparent 28%,
+      transparent 72%,
+      rgba(10, 22, 42, 0.08) 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 70%,
+      rgba(27, 23, 19, 0.12) 100%
+    );
 }
 
-.wine-image img {
-  border-radius: 5px;
-  margin-top: 20px;
-  width: 50%;
-  box-shadow: 0px 30px 20px rgba(84, 86, 87, 1);
-  margin-bottom: 50px;
-  height: 255px;
+.poster-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 78px;
+  pointer-events: none;
+  background: #fff3df;
+  clip-path: polygon(
+    0 100%,
+    0 78%,
+    30% 78%,
+    38% 72%,
+    43% 58%,
+    47% 39%,
+    50% 22%,
+    53% 39%,
+    57% 58%,
+    62% 72%,
+    70% 78%,
+    100% 78%,
+    100% 100%
+  );
 }
 
-.menu-title {
-  background: white;
-  border-top: 20px solid #3e3c3c;
-  border-bottom: 20px solid #3e3c3c;
-  padding: 5px 0;
-  height: 220px;
+.poster-title {
+  position: relative;
+  z-index: 8;
+  margin-top: -18px;
+  padding: 38px 118px 30px;
+  text-align: center;
+  border-left: 1px solid rgba(189, 63, 24, 0.38);
+  border-right: 1px solid rgba(189, 63, 24, 0.38);
 }
 
-.menu-title a {
-  text-decoration: none !important;
-  color: rgb(41, 77, 194);
-  margin-left: 5px;
+.poster-title::before {
+  content: "◆";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7b8752;
+  background: #fff3df;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid rgba(123, 135, 82, 0.78);
+  box-shadow: 0 0 0 7px #fff3df;
+  pointer-events: none;
+}
+
+.poster-title::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 28px;
+  right: 28px;
+  height: 18px;
+  pointer-events: none;
+  border-top: 2px solid rgba(104, 119, 72, 0.82);
+  border-left: 2px solid rgba(104, 119, 72, 0.82);
+  border-right: 2px solid rgba(104, 119, 72, 0.82);
+  border-radius: 12px 12px 0 0;
+}
+
+.poster-title p {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 0 38px;
+  color: #8b2f17;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.poster-title p::before,
+.poster-title p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 1px;
+  background: #bd3f18;
+}
+
+.poster-title p::before {
+  left: 0;
+}
+
+.poster-title p::after {
+  right: 0;
+}
+
+.poster-title h1 {
+  margin: 0;
+  color: #bd3f18;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 7vw, 94px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.75),
+    0 5px 0 rgba(116, 37, 14, 0.08);
+}
+
+.poster-title h4 {
+  position: relative;
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 7px 58px;
+  color: #2d1a13;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.poster-title h4::before,
+.poster-title h4::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 42px;
+  height: 1px;
+  background: rgba(189, 63, 24, 0.62);
+}
+
+.poster-title h4::before {
+  left: 0;
+}
+
+.poster-title h4::after {
+  right: 0;
+}
+
+.poster-columns {
+  position: relative;
+  z-index: 7;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 38px;
+  padding: 4px 108px 28px;
+  border-left: 1px solid rgba(189, 63, 24, 0.38);
+  border-right: 1px solid rgba(189, 63, 24, 0.38);
+}
+
+.poster-columns::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -238px;
+  bottom: 0;
+  left: 18px;
+  width: 48px;
+  pointer-events: none;
+  border-radius: 2px;
+  background: radial-gradient(
+        circle at 50% 50%,
+        #d36a32 0 2px,
+        transparent 2.5px
+      )
+      center 8px / 48px 58px repeat-y,
+    radial-gradient(ellipse at 70% 50%, #f7e7c5 0 32%, transparent 35%) 5px 3px /
+      18px 34px repeat-y,
+    radial-gradient(ellipse at 30% 50%, #f7e7c5 0 32%, transparent 35%) 25px
+      20px / 18px 34px repeat-y,
+    radial-gradient(ellipse at 70% 50%, #c9cda4 0 34%, transparent 37%) 4px 21px /
+      18px 38px repeat-y,
+    radial-gradient(ellipse at 30% 50%, #c9cda4 0 34%, transparent 37%) 26px 2px /
+      18px 38px repeat-y,
+    linear-gradient(
+      90deg,
+      transparent 47%,
+      rgba(244, 222, 177, 0.82) 47%,
+      rgba(244, 222, 177, 0.82) 53%,
+      transparent 53%
+    ),
+    linear-gradient(180deg, #7f8d58 0%, #74834f 50%, #687746 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 244, 222, 0.22),
+    0 0 0 1px rgba(86, 101, 57, 0.2);
+}
+
+.poster-columns::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -238px;
+  right: 18px;
+  bottom: 0;
+  width: 48px;
+  pointer-events: none;
+  border-radius: 2px;
+  background: radial-gradient(
+        circle at 50% 50%,
+        #d36a32 0 2px,
+        transparent 2.5px
+      )
+      center 8px / 48px 58px repeat-y,
+    radial-gradient(ellipse at 70% 50%, #f7e7c5 0 32%, transparent 35%) 5px 3px /
+      18px 34px repeat-y,
+    radial-gradient(ellipse at 30% 50%, #f7e7c5 0 32%, transparent 35%) 25px
+      20px / 18px 34px repeat-y,
+    radial-gradient(ellipse at 70% 50%, #c9cda4 0 34%, transparent 37%) 4px 21px /
+      18px 38px repeat-y,
+    radial-gradient(ellipse at 30% 50%, #c9cda4 0 34%, transparent 37%) 26px 2px /
+      18px 38px repeat-y,
+    linear-gradient(
+      90deg,
+      transparent 47%,
+      rgba(244, 222, 177, 0.82) 47%,
+      rgba(244, 222, 177, 0.82) 53%,
+      transparent 53%
+    ),
+    linear-gradient(180deg, #7f8d58 0%, #74834f 50%, #687746 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 244, 222, 0.22),
+    0 0 0 1px rgba(86, 101, 57, 0.2);
+}
+
+.poster-columns > div {
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+}
+
+.poster-columns > div:first-child {
+  padding-right: 38px;
+}
+
+.poster-columns > div:first-child::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: -1px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(189, 63, 24, 0.28) 6%,
+    rgba(189, 63, 24, 0.28) 94%,
+    transparent
+  );
+}
+
+.poster-section {
+  margin-bottom: 28px;
+}
+
+.poster-section h2 {
+  position: relative;
+  display: inline-block;
+  min-width: 220px;
+  margin: 0 0 10px;
+  padding: 8px 28px 9px;
+  color: #fff4e2;
+  background: #bd3f18;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 7px 5px 0 rgba(153, 45, 14, 0.08);
+  clip-path: polygon(
+    0 17%,
+    5% 8%,
+    13% 13%,
+    22% 4%,
+    31% 11%,
+    42% 3%,
+    53% 12%,
+    64% 5%,
+    75% 13%,
+    86% 4%,
+    100% 14%,
+    96% 31%,
+    100% 48%,
+    96% 66%,
+    100% 84%,
+    87% 94%,
+    75% 88%,
+    63% 97%,
+    51% 89%,
+    39% 97%,
+    27% 89%,
+    15% 96%,
+    0 86%
+  );
+}
+
+.poster-columns > div:nth-child(2) .poster-section h2 {
+  font-size: clamp(20px, 2.15vw, 27px);
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.poster-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 14px;
+  padding: 9px 0 10px;
+  border-bottom: 1px dashed rgba(93, 52, 30, 0.24);
+}
+
+.poster-item h3 {
+  margin: 0;
+  color: #201713;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.poster-item p {
+  margin: 4px 0 0;
+  color: #4f4037;
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+.poster-item strong {
+  padding-top: 2px;
+  color: #c44219;
   font-size: 17px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .menu-title {
-    height: 260px;
+.poster-section.compact {
+  margin-top: 4px;
+}
+
+.compact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px 22px;
+}
+
+.compact-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: #241b17;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.compact-item strong {
+  flex: 0 0 auto;
+  color: #8f2d12;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.masala-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin: 16px 0 28px;
+}
+
+.masala-box {
+  position: relative;
+  padding: 14px 14px 15px;
+  text-align: center;
+  background: rgba(255, 247, 232, 0.48);
+  border: 2px solid #963013;
+}
+
+.masala-box::before,
+.masala-box::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  background: #fff3df;
+}
+
+.masala-box::before {
+  top: -4px;
+  left: 17%;
+}
+
+.masala-box::after {
+  right: 14%;
+  bottom: -4px;
+}
+
+.masala-box h3 {
+  margin: 0 0 5px;
+  color: #7a260f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.masala-box p {
+  margin: 0 0 8px;
+  color: #4b3429;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.masala-box div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: min(125px, 100%);
+  margin: 3px auto;
+  color: #271b16;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.masala-box strong {
+  color: #7f2810;
+  font-weight: 900;
+}
+
+.poster-footer {
+  position: relative;
+  z-index: 7;
+  margin: 0;
+  padding: 14px 108px 46px;
+  color: #6f2511;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  border-left: 1px solid rgba(189, 63, 24, 0.38);
+  border-right: 1px solid rgba(189, 63, 24, 0.38);
+  border-bottom: 1px solid rgba(189, 63, 24, 0.38);
+}
+
+.poster-footer::after {
+  content: "◇";
+  display: block;
+  width: 360px;
+  max-width: 72%;
+  height: 18px;
+  margin: 12px auto 0;
+  color: #bd3f18;
+  line-height: 15px;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #bd3f18 42%,
+      transparent 42%,
+      transparent 58%,
+      #bd3f18 58%,
+      transparent 100%
+    )
+    center / 100% 1px no-repeat;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .menu-app {
+    padding-top: 18px;
+  }
+
+  .menu-poster {
+    width: 95%;
+  }
+
+  .poster-hero {
+    height: 250px;
+  }
+
+  .poster-hero img {
+    object-position: 46% center;
+  }
+
+  .poster-title {
+    margin-top: -14px;
+    padding: 36px 82px 26px;
+  }
+
+  .poster-title::after {
+    left: 20px;
+    right: 20px;
+  }
+
+  .poster-title p {
+    font-size: 18px;
+  }
+
+  .poster-title h1 {
+    font-size: clamp(48px, 10vw, 70px);
+  }
+
+  .poster-title h4 {
+    padding: 7px 45px;
+    font-size: 17px;
+  }
+
+  .poster-columns {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 4px 86px 26px;
+  }
+
+  .poster-columns::before {
+    top: -220px;
+    left: 16px;
+    width: 42px;
+  }
+
+  .poster-columns::after {
+    top: -220px;
+    right: 16px;
+    width: 42px;
+  }
+
+  .poster-columns > div:first-child {
+    padding-right: 0;
+  }
+
+  .poster-columns > div:first-child::after {
+    display: none;
+  }
+
+  .poster-footer {
+    padding-left: 86px;
+    padding-right: 86px;
   }
 }
 
-.menu-title i {
-  font-size: 50px;
-  margin-right: 15px;
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .menu-app {
+    padding: 12px 0 48px;
+  }
+
+  .menu-poster {
+    width: 96%;
+    border-radius: 6px;
+  }
+
+  .poster-hero {
+    height: 205px;
+  }
+
+  .poster-hero img {
+    object-position: 43% center;
+  }
+
+  .poster-hero::after {
+    height: 58px;
+  }
+
+  .poster-title {
+    margin-top: -8px;
+    padding: 32px 52px 22px;
+  }
+
+  .poster-title::before {
+    top: -10px;
+    width: 14px;
+    height: 14px;
+    font-size: 8px;
+  }
+
+  .poster-title::after {
+    left: 12px;
+    right: 12px;
+    top: 3px;
+  }
+
+  .poster-title p {
+    margin-bottom: 7px;
+    padding: 0 25px;
+    font-size: 14px;
+  }
+
+  .poster-title p::before,
+  .poster-title p::after {
+    width: 18px;
+  }
+
+  .poster-title h1 {
+    font-size: 40px;
+    line-height: 0.92;
+    letter-spacing: 1px;
+  }
+
+  .poster-title h4 {
+    margin-top: 13px;
+    padding: 6px 26px;
+    font-size: 14px;
+  }
+
+  .poster-title h4::before,
+  .poster-title h4::after {
+    width: 20px;
+  }
+
+  .poster-columns {
+    padding: 2px 54px 20px;
+  }
+
+  .poster-columns::before {
+    top: -185px;
+    left: 9px;
+    width: 30px;
+  }
+
+  .poster-columns::after {
+    top: -185px;
+    right: 9px;
+    width: 30px;
+  }
+
+  .poster-section {
+    margin-bottom: 25px;
+  }
+
+  .poster-section h2 {
+    min-width: 0;
+    max-width: 100%;
+    padding: 7px 20px 8px;
+    font-size: 21px;
+    white-space: normal;
+  }
+
+  .poster-columns > div:nth-child(2) .poster-section h2 {
+    font-size: 19px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .poster-item {
+    gap: 10px;
+    padding: 8px 0 9px;
+  }
+
+  .poster-item h3 {
+    font-size: 17px;
+  }
+
+  .poster-item p {
+    font-size: 12.5px;
+  }
+
+  .poster-item strong {
+    font-size: 16px;
+  }
+
+  .compact-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .masala-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-footer {
+    padding: 10px 54px 36px;
+    font-size: 17px;
+  }
 }
 
-.menu-title h1 {
-  color: rgb(111, 179, 77);
-  font-size: 65px;
+/* ================================
+   MENU PAGE POLISH
+================================ */
+
+/* REAL FIX — your menu uses poster-item, not menu-item */
+
+.poster-item,
+.poster-item div,
+.poster-item h3,
+.poster-item p {
+  text-align: left !important;
 }
 
-.menu-title h4 {
-  font-weight: bold;
+.poster-item {
+  grid-template-columns: minmax(0, 1fr) auto !important;
 }
 
-.menu-title p {
-  font-weight: bolder;
-  color: black;
+.poster-item strong {
+  text-align: right !important;
+  justify-self: end !important;
+}
+
+.poster-section {
+  text-align: left !important;
+}
+
+.poster-section h2 {
+  text-align: center !important;
+}
+
+/* =========================================
+   REAL MENU POLISH — NEXT STEP
+   Better dish-row proportions
+========================================= */
+
+.poster-columns {
+  gap: 54px;
+  padding-left: 92px;
+  padding-right: 92px;
+}
+
+.poster-columns > div:first-child {
+  padding-right: 26px;
+}
+
+.poster-item {
+  width: 100%;
+  gap: 18px;
+  padding: 12px 0 13px;
+}
+
+.poster-item h3 {
+  font-size: 20px;
+  line-height: 1.15;
+  margin: 0 0 4px;
+}
+
+.poster-item p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.poster-item strong {
+  font-size: 18px;
+  padding-top: 1px;
+  min-width: 38px;
+}
+
+.poster-section h2 {
+  margin-bottom: 14px;
+}
+
+/* keep tablet/mobile safe */
+@media (max-width: 850px) {
+  .poster-columns {
+    padding-left: 86px;
+    padding-right: 86px;
+  }
+
+  .poster-columns > div:first-child {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .poster-columns {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+
+  .poster-item h3 {
+    font-size: 17px;
+  }
+
+  .poster-item p {
+    font-size: 12.5px;
+  }
+
+  .poster-item strong {
+    font-size: 16px;
+  }
+}
+
+/* REAL MENU POLISH — STEP 2
+   Make the poster closer to chosen reference */
+
+.menu-poster {
+  width: min(1280px, 88%);
+}
+
+.poster-hero {
+  height: 320px;
+}
+
+.poster-title {
+  padding-top: 42px;
+}
+
+.poster-title h1 {
+  font-size: clamp(64px, 7.4vw, 108px);
+  letter-spacing: 4px;
+}
+
+.poster-title p {
+  font-size: 24px;
+}
+
+.poster-title h4 {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.poster-columns {
+  padding-top: 10px;
+  padding-bottom: 36px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 3
+   Tighten title block + pull food upward
+========================================= */
+
+.poster-title {
+  padding-top: 32px;
+  padding-bottom: 18px;
+}
+
+.poster-title p {
+  margin-bottom: 7px;
+  font-size: 22px;
+}
+
+.poster-title h1 {
+  font-size: clamp(62px, 6.7vw, 100px);
+  line-height: 0.88;
+}
+
+.poster-title h4 {
+  margin-top: 14px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.poster-columns {
+  padding-top: 0;
+}
+
+.poster-section h2 {
+  margin-bottom: 10px;
+}
+
+/* REAL MENU POLISH — STEP 4
+   Slightly reduce hero height */
+
+.poster-hero {
+  height: 285px;
+}
+
+.poster-hero img {
+  object-position: center 42%;
+}
+
+.poster-hero::after {
+  height: 70px;
+}
+
+/* REAL MENU POLISH — STEP 5
+   Reduce empty space above poster */
+
+.menu-app {
+  padding-top: 6px;
+}
+
+.menu-poster {
+  margin-top: 0;
+}
+
+@media (max-width: 850px) {
+  .menu-app {
+    padding-top: 4px;
+  }
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 6
+   Refine section ribbons
+========================================= */
+
+.poster-section h2 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+  text-align: center !important;
+  min-width: 240px;
+}
+
+.poster-columns > div:nth-child(2) .poster-section h2 {
+  min-width: 0;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Keep dish rows left aligned */
+.poster-item,
+.poster-item div,
+.poster-item h3,
+.poster-item p {
+  text-align: left !important;
+}
+
+.poster-item strong {
+  text-align: right !important;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 7
+   Improve spacing under ribbons
+========================================= */
+
+.poster-section h2 {
+  margin-bottom: 22px;
+}
+
+.poster-item:first-of-type {
+  padding-top: 0;
+}
+
+.poster-item {
+  padding-bottom: 14px;
+}
+
+.poster-section {
+  margin-bottom: 34px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 8
+   Refine center divider
+========================================= */
+
+.poster-columns > div:first-child::after {
+  top: 68px;
+  bottom: 18px;
+  opacity: 0.75;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(189, 63, 24, 0.26) 8%,
+    rgba(189, 63, 24, 0.26) 92%,
+    transparent 100%
+  );
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 9
+   Slim and soften floral side borders
+========================================= */
+
+.poster-columns::before,
+.poster-columns::after {
+  width: 42px;
+  opacity: 0.92;
+}
+
+.poster-columns::before {
+  left: 20px;
+}
+
+.poster-columns::after {
+  right: 20px;
+}
+
+/* Keep content comfortably away from borders */
+.poster-columns {
+  padding-left: 96px;
+  padding-right: 96px;
+}
+
+@media (max-width: 850px) {
+  .poster-columns::before,
+  .poster-columns::after {
+    width: 38px;
+  }
+
+  .poster-columns {
+    padding-left: 82px;
+    padding-right: 82px;
+  }
+}
+
+@media (max-width: 520px) {
+  .poster-columns::before,
+  .poster-columns::after {
+    width: 28px;
+  }
+
+  .poster-columns {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 10
+   Slightly refine title scale
+========================================= */
+
+.poster-title h1 {
+  font-size: clamp(58px, 6.3vw, 94px);
+  letter-spacing: 3.5px;
+}
+
+.poster-title p {
   font-size: 21px;
 }
 
-.categories {
-  border: 1px solid grey;
-  width: 55%;
-  margin: auto;
-  margin-bottom: 80px;
-  margin-top: 40px;
-  border-radius: 2px;
-  background: white;
-  box-shadow: 0px 30px 20px rgba(84, 86, 87, 1);
-  padding-bottom: 50px;
+.poster-title h4 {
+  font-size: 19px;
 }
 
-.categories i {
-  margin-right: 10px;
-  font-size: 35px;
-  text-shadow: 1px 1px black;
+/* =========================================
+   REAL MENU POLISH — STEP 11
+   Clean floral border starting position
+========================================= */
+
+.poster-columns::before,
+.poster-columns::after {
+  top: -214px;
 }
 
-.categories h2 {
-  font-size: 50px;
-  color: rgb(111, 179, 77);
-  margin-bottom: 40px;
-  margin-top: 30px;
-  font-weight: 600;
+/* Keep both floral strips aligned evenly */
+.poster-columns::before {
+  left: 20px;
 }
 
-.categories p:nth-of-type(1) {
-  margin-bottom: 7px;
+.poster-columns::after {
+  right: 20px;
 }
 
-.categories p:nth-of-type(2) {
-  margin-bottom: 30px;
+/* =========================================
+   REAL MENU POLISH — STEP 12
+   Tighten space below hero
+========================================= */
+
+.poster-title {
+  padding-top: 24px;
+  padding-bottom: 16px;
 }
 
-.add-ons {
-  color: black;
-  margin-bottom: 50px;
+.poster-title::after {
+  top: 0;
 }
 
-/**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/ /**/
-/* Media Queries */
+.poster-title p {
+  margin-bottom: 5px;
+}
 
-/* iPhone 5 */
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .menu-title h1 {
-    font-size: 60px !important;
+.poster-title h4 {
+  margin-top: 10px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 13
+   Improve dish readability
+========================================= */
+
+.poster-item h3 {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.poster-item p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #46382f;
+}
+
+.poster-item strong {
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.poster-item {
+  padding-top: 11px;
+  padding-bottom: 12px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 14
+   Tighten lower menu + footer spacing
+========================================= */
+
+.poster-section {
+  margin-bottom: 24px;
+}
+
+.poster-footer {
+  padding-top: 4px;
+  padding-bottom: 28px;
+}
+
+/* Pull allergy notice upward */
+.poster-footer {
+  margin-top: -34px;
+}
+
+/* Keep decorative footer line balanced */
+.poster-footer::after {
+  margin-top: 10px;
+}
+
+/* Reduce extra space after compact sections */
+.poster-section.compact {
+  margin-bottom: 18px;
+}
+
+/* Keep dessert section from creating excess height */
+.poster-columns > div:nth-child(2) .poster-section:last-child {
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 15
+   Refine compact lower sections
+========================================= */
+
+/* Give compact sections a cleaner rhythm */
+.poster-section.compact h2 {
+  margin-bottom: 20px;
+}
+
+/* Slightly open up compact menu rows */
+.compact-grid {
+  row-gap: 10px;
+  column-gap: 26px;
+}
+
+.compact-item {
+  line-height: 1.35;
+}
+
+/* Keep lower section ribbons visually balanced */
+.poster-section.compact {
+  margin-top: 8px;
+  margin-bottom: 22px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 16
+   Mobile layout repair
+========================================= */
+
+@media (max-width: 520px) {
+  /* Give the menu more usable width */
+  .menu-poster {
+    width: 98%;
+  }
+
+  /* Stop floral rails from crushing content */
+  .poster-columns {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  .poster-columns::before,
+  .poster-columns::after {
+    width: 22px;
+  }
+
+  .poster-columns::before {
+    left: 7px;
+  }
+
+  .poster-columns::after {
+    right: 7px;
+  }
+
+  /* Repair title block */
+  .poster-title {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .poster-title p {
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+  }
+
+  .poster-title h1 {
+    font-size: clamp(38px, 13vw, 54px);
+    line-height: 0.9;
+    letter-spacing: 0.5px;
+  }
+
+  .poster-title h4 {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  /* Keep ribbons inside mobile width */
+  .poster-section h2,
+  .poster-columns > div:nth-child(2) .poster-section h2 {
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  /* Improve dish readability */
+  .poster-item {
+    gap: 8px;
+  }
+
+  .poster-item h3 {
+    font-size: 17px;
+  }
+
+  .poster-item p {
+    font-size: 12.5px;
+    line-height: 1.35;
+  }
+
+  .poster-item strong {
+    font-size: 16px;
   }
 }
 
-/* iPhone X */
-@media (max-width: 812px) {
-  .menu-image img {
-    border-radius: 5px;
-    margin-top: 20px;
-    width: 100%;
+/* =========================================
+   REAL MENU POLISH — STEP 17
+   Mobile title refinement
+========================================= */
+
+@media (max-width: 520px) {
+  .poster-title h1 {
+    font-size: clamp(34px, 10.5vw, 46px);
+    line-height: 0.92;
+    letter-spacing: 0;
   }
-  .categories {
-    width: 97%;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 18
+   Mobile item height refinement
+========================================= */
+
+@media (max-width: 520px) {
+  .poster-item h3 {
+    font-size: 16px;
   }
-  .menu-app {
-    width: 100%;
+
+  .poster-item p {
+    font-size: 12px;
+    line-height: 1.32;
   }
-  .menu-title h1 {
-    font-size: 70px;
+
+  .poster-item strong {
+    font-size: 15px;
   }
-  .categories h2 {
-    font-size: 45px;
+
+  .poster-item {
+    padding-top: 9px;
+    padding-bottom: 10px;
   }
-  .logo img {
-    width: 150px;
-    height: 80px;
-    margin-top: -45px;
+}
+
+/* =========================================
+   REAL MENU POLISH — STEP 19
+   Mobile compact-list refinement
+========================================= */
+
+@media (max-width: 520px) {
+  .poster-mini-list {
+    gap: 6px;
+  }
+
+  .poster-mini-list li {
+    min-height: 0;
+    margin: 0;
+    padding: 2px 0;
+    line-height: 1.2;
+  }
+
+  .poster-mini-list li span,
+  .poster-mini-list li strong {
+    line-height: 1.2;
   }
 }
