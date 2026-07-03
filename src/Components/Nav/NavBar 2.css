@@ -1,0 +1,132 @@
+.navbar-main {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.taste-navbar {
+  min-height: 86px;
+  padding: 8px 7%;
+  background: rgba(255, 248, 236, 0.97) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(43, 33, 24, 0.12);
+  border-bottom: 1px solid rgba(159, 43, 29, 0.15);
+}
+
+.taste-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 18px;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: #7b1e16 !important;
+  letter-spacing: 0.3px;
+  text-decoration: none !important;
+}
+
+.taste-brand img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.38);
+  transform-origin: center;
+}
+
+.taste-brand span {
+  color: #7b1e16;
+}
+
+.taste-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.taste-links .nav-link,
+.dropdown-toggle {
+  color: #2b2118 !important;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.taste-links .nav-link:hover,
+.dropdown-toggle:hover {
+  color: #9f2b1d !important;
+}
+
+.dropdown-menu {
+  background: #fff8ec;
+  border: 1px solid rgba(159, 43, 29, 0.15);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 34px rgba(43, 33, 24, 0.16);
+}
+
+.dropdown-item {
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: #2b2118 !important;
+  font-weight: 700;
+}
+
+.dropdown-item:hover {
+  background: #f0dfc5;
+  color: #7b1e16 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  .taste-navbar {
+    min-height: 78px;
+    padding: 8px 22px;
+  }
+
+  .taste-brand {
+    font-size: 20px;
+    gap: 14px;
+  }
+
+  .taste-brand img {
+    width: 54px;
+    height: 54px;
+    transform: scale(1.3);
+  }
+
+  .taste-links {
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 18px;
+    padding-bottom: 14px;
+  }
+
+  .taste-links .nav-link,
+  .dropdown-toggle {
+    padding-left: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .taste-brand span {
+    font-size: 17px;
+  }
+
+  .taste-brand img {
+    width: 48px;
+    height: 48px;
+    transform: scale(1.25);
+  }
+}

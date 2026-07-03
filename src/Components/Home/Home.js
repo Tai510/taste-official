@@ -5,153 +5,149 @@ import OurStory from "../OurStory/OurStory";
 import FeaturedExperience from "../FeaturedExperience/FeaturedExperience";
 import MenuPreview from "../MenuPreview/MenuPreview";
 
-const HomePage = styled.section`
-  min-height: 88vh;
+const HomeWrapper = styled.div`
   width: 100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(18, 12, 8, 0.82) 0%,
-      rgba(18, 12, 8, 0.62) 42%,
-      rgba(18, 12, 8, 0.2) 100%
-    ),
-    url("/images/spices.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  padding: 120px 7% 70px;
-  color: white;
+  background: #fcedd5;
 `;
 
-const HeroContent = styled.div`
+const LandingSection = styled.section`
+  position: relative;
   width: 100%;
-  max-width: 720px;
-  text-align: left;
+  height: calc(100vh - 86px);
+  min-height: 620px;
+  max-height: 900px;
+  overflow: hidden;
+  background: #fcedd5;
 
-  .eyebrow {
-    color: #f5c76a;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
+  @media (max-width: 991px) {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
+`;
 
-  h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(48px, 7vw, 92px);
-    font-weight: 800;
-    line-height: 0.95;
-    margin-bottom: 24px;
-    text-shadow:
-      0 4px 18px rgba(0, 0, 0, 0.65),
-      0 1px 2px rgba(0, 0, 0, 0.8);
-  }
+const LandingImage = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  z-index: 1;
 
-  .hero-description {
-    max-width: 650px;
-    margin: 0 0 34px;
-    font-size: 19px;
-    line-height: 1.7;
-    color: #f6ead7;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  @media (max-width: 991px) {
+    object-fit: cover;
+    object-position: center;
   }
+`;
 
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+const HeroButtons = styled.div`
+  position: absolute;
+  z-index: 2;
+  left: 4.8%;
+  top: 61%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
 
   .primary-btn,
   .secondary-btn {
-    padding: 15px 28px;
-    border-radius: 999px;
-    font-size: 14px;
+    min-width: 145px;
+    height: 52px;
+    padding: 0 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 15px;
     font-weight: 800;
-    letter-spacing: 0.5px;
     text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
   }
 
   .primary-btn {
-    background: #9f2b1d;
-    color: white;
+    color: #ffffff;
+    background: #e56600;
+    border: 2px solid #e56600;
+  }
+
+  .primary-btn:hover {
+    color: #ffffff;
+    background: #cc5900;
+    border-color: #cc5900;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(229, 102, 0, 0.2);
   }
 
   .secondary-btn {
-    background: rgba(255, 248, 236, 0.94);
-    color: #7b1e16;
+    color: #102f63;
+    background: rgba(255, 248, 236, 0.96);
+    border: 2px solid #102f63;
   }
 
-  .restaurant-info {
-    margin-top: 36px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #f6ead7;
+  .secondary-btn:hover {
+    color: #ffffff;
+    background: #102f63;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(16, 47, 99, 0.18);
   }
 
-  .restaurant-info a {
-    color: #f6ead7;
-    text-decoration: underline;
-  }
+  @media (max-width: 991px) {
+    left: 4.8%;
+    top: 61%;
+    gap: 12px;
 
-  @media (max-width: 700px) {
-    text-align: center;
-
-    .hero-description {
-      margin-left: auto;
-      margin-right: auto;
+    .primary-btn,
+    .secondary-btn {
+      min-width: 120px;
+      height: 44px;
+      padding: 0 18px;
+      font-size: 13px;
     }
+  }
 
-    .hero-buttons {
-      justify-content: center;
+  @media (max-width: 600px) {
+    gap: 8px;
+
+    .primary-btn,
+    .secondary-btn {
+      min-width: 92px;
+      height: 36px;
+      padding: 0 12px;
+      border-radius: 6px;
+      font-size: 11px;
     }
   }
 `;
 
 const Home = () => {
   return (
-    <div id="home">
-      <HomePage>
-        <HeroContent>
-          <div className="eyebrow">
-            Sonoma, California • Established 2003
-          </div>
+    <HomeWrapper id="home">
+      <LandingSection>
+        <LandingImage
+          src="/images/himalayas-landing.png"
+          alt="Taste of the Himalayas illustrated landing page"
+        />
 
-          <h1>Taste of the Himalayas</h1>
+        <HeroButtons>
+          <Link className="primary-btn" to="/dinner-menu">
+            View Menu
+          </Link>
 
-          <p className="hero-description">
-            Traditional Nepalese, Tibetan, and Indian dishes served with warmth,
-            spice, and the spirit of the Himalayas in the heart of Sonoma.
-          </p>
-
-          <div className="hero-buttons">
-            <Link className="primary-btn" to="/dinner-menu">
-              Explore Our Menu
-            </Link>
-
-            <Link className="secondary-btn" to="/contact">
-              Visit Us
-            </Link>
-          </div>
-
-          <div className="restaurant-info">
-            464 1st St E Suite F, Sonoma, CA 95476 |{" "}
-            <a href="tel:+17079961161">707-996-1161</a> |{" "}
-            <Link to="/contact">Contact Us</Link>
-          </div>
-        </HeroContent>
-      </HomePage>
+          <Link className="secondary-btn" to="/about">
+            Explore
+          </Link>
+        </HeroButtons>
+      </LandingSection>
 
       <OurStory />
       <FeaturedExperience />
       <MenuPreview />
-    </div>
+    </HomeWrapper>
   );
 };
 

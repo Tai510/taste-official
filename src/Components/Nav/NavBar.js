@@ -1,30 +1,35 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+import "./Navbar.css";
 
 const NavBar = () => {
   return (
-    <div className="navbar-main">
+    <header className="navbar-main">
       <Navbar expand="lg" className="taste-navbar">
         <Navbar.Brand as={Link} to="/" className="taste-brand">
           <img
             src="/images/taste-logo.png"
             alt="Taste of the Himalayas logo"
           />
-
-          <span>Taste of the Himalayas</span>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="taste-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="taste-navbar-nav"
+          className="taste-toggle"
+        />
 
         <Navbar.Collapse id="taste-navbar-nav">
-          <Nav className="ml-auto taste-links">
+          <Nav className="taste-links">
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
 
-            <NavDropdown title="Menu" id="taste-menu-dropdown">
+            <NavDropdown
+              title="Menu"
+              id="taste-menu-dropdown"
+              className="taste-dropdown"
+            >
               <NavDropdown.Item as={Link} to="/lunch-menu">
                 Lunch Menu
               </NavDropdown.Item>
@@ -48,7 +53,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </div>
+    </header>
   );
 };
 
