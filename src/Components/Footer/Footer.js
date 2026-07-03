@@ -1,115 +1,72 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
-import { FcAbout } from "react-icons/fc";
-import { TiLocation } from "react-icons/ti";
-import { FcClock } from "react-icons/fc";
-import { FcContacts } from "react-icons/fc";
-import { FcHome } from "react-icons/fc";
-
 
 const Footer = () => {
   return (
-    <footer className="Footer">
-      <div className="footer-home">
-        <div className="back-home">
-          <a id="back-home" href="/#home">
-            <FcHome className='fa-angle-double-up'/>
-          </a>
+    <footer className="site-footer">
+      <div className="footer-top-pattern"></div>
+
+      <div className="footer-main">
+        <div className="footer-logo-stamp">
+          <img src="/images/taste-logo.png" alt="Taste of the Himalayas logo" />
+        </div>
+
+        <div className="footer-info-block">
+          <h4>Taste of the Himalayas</h4>
+          <p>464 1st St E Suite F</p>
+          <p>Sonoma, CA 95476</p>
+          <p className="footer-contact-line">
+            <a href="tel:+17079961161">707-996-1161</a>
+          </p>
+          <p>
+            <a href="mailto:himalayas.sonoma@gmail.com">
+              himalayas.sonoma@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div className="footer-hours-block">
+          <h4>Hours</h4>
+          <p>
+            <strong>Lunch</strong>
+            <span>Tues – Sun • 11:00 AM – 2:30 PM</span>
+          </p>
+          <p>
+            <strong>Dinner</strong>
+            <span>Mon – Sun • 5:00 PM – 9:00 PM</span>
+          </p>
         </div>
       </div>
 
-      <div className="footer=top-half">
-        <div className="footer-main">
-          <div className="footer-info">
-            <h4>
-              <FcAbout /> About
-            </h4>
-            <p>Taste of Himalayas</p>
-            <p>Established 2003</p>
-            <p>Sonoma</p>
-            <p>Copyright © 2020</p>
-          </div>
-          <div className="footer-location">
-            <h4>
-              <TiLocation />
-              Location
-            </h4>
-            <p>464 1st East</p>
-            <p>Sonoma, Ca</p>
-            <p>95476</p>
-            <p>
-              <a
-                style={{ display: "table-cell" }}
-                target="_blank"
-                href="https://www.google.com/maps/place/Taste+of+the+Himalayas/@38.2924152,-122.4558005,14.84z/data=!4m5!3m4!1s0x0:0xc8ed3bdef6b63449!8m2!3d38.292116!4d-122.456202"
-              >
-                View on map
-              </a>{" "}
-              <i class="fas fa-long-arrow-alt-right"></i>
-            </p>
-          </div>
-          <div className="footer-hours">
-            <h4>
-              <FcClock />
-              Hours
-            </h4>
-            <h5>Lunch</h5>
-            <p>
-              Tues - Sun <span id="lunch-hours">11:00 am - 02:30 pm</span>
-            </p>
-            <h5>Dinner</h5>
-            <p>
-              Mon - Sun <span id="dinner-hours">05:00 am - 09:00 pm</span>
-            </p>
-          </div>
-          <div className="footer-connect">
-            <h4>Connect</h4>
-            <p>
-              <a
-                style={{ display: "table-cell" }}
-                target="_blank"
-                id="facebook"
-                href="https://www.facebook.com/pg/tasteofthehimalayassonoma/about/?ref=page_internal"
-              >
-                Facebook
-              </a>{" "}
-              <i id="fb-icon" class="fas fa-long-arrow-alt-right"></i>
-            </p>
-            <p>
-              <a
-                style={{ display: "table-cell" }}
-                target="_blank"
-                id="yelp"
-                href="https://www.yelp.com/biz/taste-of-the-himalayas-sonoma"
-              >
-                Yelp
-              </a>{" "}
-              <i id="yelp-icon" class="fas fa-long-arrow-alt-right"></i>
-            </p>
-          </div>
-          <div className="footer-contact">
-            <h4>
-              <span>
-                <FcContacts />
-              </span>
-              Contact
-            </h4>
-            <div className="footer-phone">
-              <i class="fas fa-mobile-alt"></i>
-              <p>
-                <a href="tel:+1-707-996-1161"> 707-996-1161</a>
-              </p>
-            </div>
-            <div className="footer-mail">
-              <i class="far fa-envelope"></i>
-              <p>
-                <a href="mailto:pthendups@yahoo.com">
-                  himalayas.sonoma@gmail.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="footer-divider"></div>
+
+      <div className="footer-bottom-nav">
+        <Link to="/">Home</Link>
+        <Link to="/lunch-menu">Menu</Link>
+        <Link to="/take-out">Take-Out</Link>
+        <Link to="/contact">Contact</Link>
+
+        <a
+          href="https://www.google.com/maps/place/Taste+of+the+Himalayas/@38.292116,-122.456202"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Map
+        </a>
+
+        <a
+          href="https://www.facebook.com/pg/tasteofthehimalayassonoma/about/?ref=page_internal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+      </div>
+
+      <div className="footer-copyright">
+        <p>Established 2003 • Sonoma, California</p>
+        <p>© {new Date().getFullYear()} Taste of the Himalayas</p>
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Navigation from "./Components/Nav/Navigation";
+import NavBar from "./Components/Nav/NavBar";
 import Home from "./Components/Home/Home";
 import DinnerMenu from "./Components/Menu/DinnerMenu";
 import LunchMenu from "./Components/Menu/LunchMenu";
@@ -44,7 +44,7 @@ function App() {
       <Router>
         <div className="logoNav">
           <div className="link-side">
-            <Navigation />
+            <NavBar />
           </div>
         </div>
         <Route exact path="/" component={Home} />

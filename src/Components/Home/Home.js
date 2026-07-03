@@ -1,164 +1,116 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import CarouselPage from "../Carousel/CarouselPage";
-import Button from "@material-ui/core/Button";
+import OurStory from "../OurStory/OurStory";
+import FeaturedExperience from "../FeaturedExperience/FeaturedExperience";
+import MenuPreview from "../MenuPreview/MenuPreview";
 
-const HomePage = styled.div`
-  .restaurant-info-bottom {
-    color: grey !important;
-    a {
-      color: grey !important;
-      text-decoration: none;
-    }
-    margin-top: 230px;
-    text-decoration: none;
-  }
-
-  background-image: url("https://images.unsplash.com/photo-1509359149003-657ef23eaf04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 878px;
-  padding-top: 200px;
+const HomePage = styled.section`
+  min-height: 88vh;
   width: 100%;
-  border-bottom: 2px solid white;
-  margin-top: -200px;
 
-  /* homepage background media queries */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-    /* Iphone 5 responsive */
-    height: 655px !important;
-    padding-top: 220px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(18, 12, 8, 0.82) 0%,
+      rgba(18, 12, 8, 0.62) 42%,
+      rgba(18, 12, 8, 0.2) 100%
+    ),
+    url("/images/spices.png");
 
-    .restaurant-info-bottom {
-      margin-top: 100px;
-      font-size: 9px;
-    }
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  @media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-    /* Iphone 8  responsive */
-    height: 740px !important;
-  }
-
-  @media (max-width: 812px) {
-    /* Iphone 8 plus responsive */
-
-    height: 530px !important;
-  }
-`;
-
-const HomeGreeting = styled.div`
-  /* opacity: 0.8; */
-`;
-
-const TitleText1 = styled.div`
-    margin-bottom: 2px;
-    margin-top: 90px;
-    width: 750px;
-    margin: auto;
-    h1 {
-    font-size: 47px;
-    font-family: 'Sigmar One', cursive;
-    padding-top: 14px;
-    font-weight: bolder !important;
-    color: white;
-    text-shadow: 1px 1px black;
-    }
-    h3{
-    font-family: 'Sigmar One', cursive;
-    padding-top: 260px;
-    font-weight: bolder !important;
-    color: #e8db24;
-    text-shadow: 1px 1px black;
-    margin-bottom: -20px;
-    font-size: 20px;
-    }
-    p{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bolder !important;
-    color: white;
-    text-shadow: 1px 1px black;
-    margin-top: -10px;
-    font-size: 12px;
-    }
-    /* Media Queries */
-
-    @media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) {
-        width: 100% !important;
-        height: 50px !important;
-        margin-top: -180px;
-    h1 {
-     font-size: 20px !important;
-     height: 50px !important; 
-     margin-bottom: 5px;
-     padding-top: 12px !important;
-       }
-    h3 {
-     font-size: 16px !important;
-     margin-bottom: -11px !important;
-    }
-    p {
-        font-size: 10px;
-    }
-    }
-
-    @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) { 
-    width: 100% !important;
-    height: 50px !important;
-    margin-top: -250px;
-    h1 {
-     font-size: 17px !important;
-     height: 50px !important; 
-     margin-bottom: 5px;
-     padding-top: 20px !important;
-     /* text-align: center !important; */
-       }
-    h3 {
-      font-size: 20px !important;
-    margin-bottom: -19px !important;
-    }
-    p {
-        font-size: 11px;
-    }
-    }
-}
-`;
-
-const ButtonDiv = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  padding: 120px 7% 70px;
+  color: white;
+`;
 
-  button {
-    outline: none;
-    z-index: 0 !important;
-    height: 55px;
-    width: 200px;
-    font-size: 17px;
-    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-      margin-top: 15px !important;
-    }
+const HeroContent = styled.div`
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+
+  .eyebrow {
+    color: #f5c76a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
   }
 
-  a {
+  h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 800;
+    line-height: 0.95;
+    margin-bottom: 24px;
+    text-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.65),
+      0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  .hero-description {
+    max-width: 650px;
+    margin: 0 0 34px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #f6ead7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 15px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
     text-decoration: none;
   }
 
-  i {
-    padding-left: 5px;
+  .primary-btn {
+    background: #9f2b1d;
+    color: white;
   }
 
-  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-    margin-top: 315px !important;
+  .secondary-btn {
+    background: rgba(255, 248, 236, 0.94);
+    color: #7b1e16;
   }
 
-  @media (max-width: 812px) {
-    margin-top: 70px;
+  .restaurant-info {
+    margin-top: 36px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #f6ead7;
+  }
+
+  .restaurant-info a {
+    color: #f6ead7;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 700px) {
+    text-align: center;
+
+    .hero-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
   }
 `;
 
@@ -166,38 +118,39 @@ const Home = () => {
   return (
     <div id="home">
       <HomePage>
-        {/* <div className="nav-background"></div> */}
-        <HomeGreeting>
-          <TitleText1>
-            <h3>Welcome to</h3>
-            <h1>TASTE OF THE HIMALAYAS</h1>
-            <p>TRADITIONAL NEPALESE, TIBETAN & INDIAN DISHES.</p>
-          </TitleText1>
-        </HomeGreeting>
+        <HeroContent>
+          <div className="eyebrow">
+            Sonoma, California • Established 2003
+          </div>
 
-        <ButtonDiv>
-          <a
-            style={{ display: "table-cell" }}
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://tastehimalayas.menu11.com/sonoma/order"
-          >
-            <Button
-              className="OrderButton"
-              variant="contained"
-              color="secondary"
-            >
-              ORDER ONLINE
-            </Button>
-          </a>
-        </ButtonDiv>
-        <p className="restaurant-info-bottom">
-            464 1st St E Suite F, Sonoma, CA 95476
-          | <a href="tel:+1-707-996-1161">707-996-1161</a> |{" "}
-          <Link to="/contact">Contact Us</Link>
-        </p>
+          <h1>Taste of the Himalayas</h1>
+
+          <p className="hero-description">
+            Traditional Nepalese, Tibetan, and Indian dishes served with warmth,
+            spice, and the spirit of the Himalayas in the heart of Sonoma.
+          </p>
+
+          <div className="hero-buttons">
+            <Link className="primary-btn" to="/dinner-menu">
+              Explore Our Menu
+            </Link>
+
+            <Link className="secondary-btn" to="/contact">
+              Visit Us
+            </Link>
+          </div>
+
+          <div className="restaurant-info">
+            464 1st St E Suite F, Sonoma, CA 95476 |{" "}
+            <a href="tel:+17079961161">707-996-1161</a> |{" "}
+            <Link to="/contact">Contact Us</Link>
+          </div>
+        </HeroContent>
       </HomePage>
-      <CarouselPage />
+
+      <OurStory />
+      <FeaturedExperience />
+      <MenuPreview />
     </div>
   );
 };

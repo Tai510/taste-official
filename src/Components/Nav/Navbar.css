@@ -1,267 +1,132 @@
-/* the whole navbar css */
-.Navbar-Main {
-  display: flex;
-  justify-content: space-between;
-  width: 100% !important;
-  background: #1b1a1a;
-  height: 112px;
+.navbar-main {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  /*  Iphone 5 responsive */
-  .Navbar-Main {
-    display: inline;
-    background-color: yellow !important;
-  }
-  .Navbar-Main a {
-    font-size: 25px !important;
-  }
-}
-/* the whole navbar css end */
-
-/* Desktop background color on navbar */
-.Navbar-Main .bg-light {
-  background: transparent !important;
-  padding-right: 65px;
-}
-/* Desktop background color on navbar end */
-
-/* Link tag with arrow divs */
-.Navbar-Main .navbar-light .navbar-nav .nav-link {
-  color: white !important;
-  height: 135px !important;
-  width: 120px;
-  background: transparent;
-  padding-top: 90px;
+.taste-navbar {
+  min-height: 86px;
+  padding: 8px 7%;
+  background: rgba(255, 248, 236, 0.97) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(43, 33, 24, 0.12);
+  border-bottom: 1px solid rgba(159, 43, 29, 0.15);
 }
 
-/* iPad  */
-@media only screen and (device-width: 768px) {
-  .Navbar-Main .bg-light {
-    background: transparent !important;
-    padding: 0;
-    position: absolute;
-  }
-}
-
-.Navbar-Main .navbar-light .navbar-nav .nav-link:hover {
-  background: rgb(179, 29, 54);
-  color: white !important;
-  outline: none;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .Navbar-Main .navbar-light .navbar-nav .nav-link {
-    width: 100%;
-    padding: 0;
-    /* border: 1px solid #9a9696; */
-    height: 80px !important;
-    padding-top: 35px;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .Navbar-Main .navbar-light .navbar-nav .nav-link {
-    width: 100%;
-    padding: 0;
-    /* border: 1px solid #9a9696; */
-    height: 100px !important;
-    padding-top: 25px !important;
-  }
-}
-/* Link tag with arrow divs end */
-
-/* hover link a tags style */
-.Navbar-Main a {
+.taste-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 18px;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: #7b1e16 !important;
+  letter-spacing: 0.3px;
   text-decoration: none !important;
 }
 
-.Navbar-Main a:hover {
-  color: white;
-}
-/* hover link a tags style end */
-
-/* all link a tags */
-.Navbar-Main a {
-  color: white;
-  font-size: 19px;
-}
-/* all link a tags end */
-
-/* dropdown on menu a tag styling */
-.Navbar-Main .dropdown-item:hover {
-  background: rgb(207, 98, 78);
-  color: #b71919 !important;
+.taste-brand img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.38);
+  transform-origin: center;
 }
 
-.Navbar-Main .dropdown-item.active,
-.dropdown-item:active {
-  background: #f1443b !important;
+.taste-brand span {
+  color: #7b1e16;
 }
 
-.Navbar-Main .navbar-light .navbar-nav .nav-link:hover {
-  background: #f1443b !important;
-  outline: none;
-}
-/* dropdown on menu a tag styling end */
-
-@media (min-width: 992px) {
-  .navbar-expand-lg .navbar-nav .dropdown-menu {
-    position: absolute;
-    background: #f1443b !important;
-    border: none;
-    border-radius: 1px;
-    margin-left: -20px !important;
-  }
+.taste-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-/* iPad  */
-@media only screen and (device-width: 768px) {
-  .navbar-nav .dropdown-menu {
-    background: #f1443b !important;
-    width: 200px;
-    margin: auto !important;
-    border: none;
-    text-align: center;
-  }
+.taste-links .nav-link,
+.dropdown-toggle {
+  color: #2b2118 !important;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
-/* the Humburger icon style */
-.Navbar-Main .navbar-light .navbar-toggler {
-  background: rgb(153, 155, 153) !important;
+.taste-links .nav-link:hover,
+.dropdown-toggle:hover {
+  color: #9f2b1d !important;
+}
+
+.dropdown-menu {
+  background: #fff8ec;
+  border: 1px solid rgba(159, 43, 29, 0.15);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 34px rgba(43, 33, 24, 0.16);
+}
+
+.dropdown-item {
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: #2b2118 !important;
+  font-weight: 700;
+}
+
+.dropdown-item:hover {
+  background: #f0dfc5;
+  color: #7b1e16 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
   outline: none !important;
-  z-index: 0;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .Navbar-Main .navbar-light .navbar-toggler {
-    margin-top: -65px;
-    margin-left: 250px;
-    /* background: green !important; */
-    color: white !important;
-    padding: 5px;
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  .taste-navbar {
+    min-height: 78px;
+    padding: 8px 22px;
+  }
+
+  .taste-brand {
+    font-size: 20px;
+    gap: 14px;
+  }
+
+  .taste-brand img {
+    width: 54px;
+    height: 54px;
+    transform: scale(1.3);
+  }
+
+  .taste-links {
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 18px;
+    padding-bottom: 14px;
+  }
+
+  .taste-links .nav-link,
+  .dropdown-toggle {
+    padding-left: 0 !important;
   }
 }
 
-@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-  .Navbar-Main .navbar-light .navbar-toggler {
-    margin-left: 300px;
-    margin-top: -65px;
+@media (max-width: 480px) {
+  .taste-brand span {
+    font-size: 17px;
   }
-}
 
-@media only screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-  .Navbar-Main .navbar-light .navbar-toggler {
-    margin-left: 320px;
+  .taste-brand img {
+    width: 48px;
+    height: 48px;
+    transform: scale(1.25);
   }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .Navbar-Main .navbar-light .navbar-toggler {
-    margin-left: 305px;
-  }
-}
-
-@media only screen and (device-width: 768px) {
-  .Navbar-Main .navbar-light .navbar-toggler {
-    margin-left: 570px !important;
-    margin-top: 35px;
-  }
-}
-
-.Navbar-Main .navbar-nav {
-  background: transparent;
-  margin-top: -24px;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .Navbar-Main .pop-up-Link {
-    display: inline;
-  }
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .Navbar-Main .navbar-nav {
-    background: #c71b1a;
-    margin-top: -85px;
-    padding-top: 135px;
-    padding-bottom: 70px;
-    width: 320px !important;
-    margin-left: -16px;
-    height: 540px !important;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-  .Navbar-Main .navbar-nav {
-    height: 620px!important;;
-    margin-left: -16px;
-    width: 375px !important;
-  }
-}
-
-@media only screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-  .Navbar-Main .navbar-nav {
-    margin-top: -93px;
-    padding-top: 135px;
-    padding-bottom: 70px;
-    width: 414px !important;
-    margin-left: -16px;
-    height: 590px !important;
-  }
-}
-
-/* Ipad Media */
-@media only screen and (device-width: 768px) {
-  .Navbar-Main .navbar-nav {
-    height: 700px;
-    background: #c71b1a;
-    width: 768px !important;
-    margin-left: -90px;
-    margin-top: -75px;
-    padding-left: 335px;
-    padding-top: 45px;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .Navbar-Main .navbar-nav {
-    height: 720px !important;
-    width: 375px !important;
-    margin-left: -16px;
-    margin-top: -95px;
-  }
-}
-
-/* the toggle icon style end */
-
-/* dropdown on menu responsive styling */
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .navbar-nav .dropdown-menu {
-    position: static;
-    float: none;
-    background: #f1443b !important;
-    width: 100% !important;
-    border: none !important;
-    text-align: center;
-    padding: 0;
-  }
-  .dropdown-item {
-    border: 1px solid !important;
-    height: 70px;
-    padding-top: 15px !important;
-  }
-}
-/* dropdown on menu responsive styling end */
-
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-  .navbar-toggler {
-    margin-left: 320px !important;
-  }
-  .Navbar-Main .navbar-nav {
-    height: 720px !important;
-    width: 390px !important;
-    margin-left: -16px;
-    margin-top: -95px;
-}
 }
