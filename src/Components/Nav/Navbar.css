@@ -3,38 +3,30 @@
   height: 86px;
   background: #fcedd5;
   position: relative;
-  z-index: 1000;
+  z-index: 3000;
 }
 
 .taste-navbar {
   width: 100%;
-  min-height: 86px;
   height: 86px;
   padding: 4px 4%;
-  background: #fcedd5 !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: #fcedd5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .taste-brand {
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  height: 86px;
   display: flex;
   align-items: center;
-  height: 86px;
-  overflow: visible;
+  text-decoration: none;
 }
 
 .taste-brand img {
   width: 145px;
   height: auto;
   display: block;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
 }
 
 .taste-links {
@@ -44,26 +36,24 @@
   gap: 38px;
 }
 
-.taste-links .nav-link,
-.taste-links .dropdown-toggle {
+.taste-links a,
+.menu-trigger {
   position: relative;
-  color: #102f63 !important;
+  color: #102f63;
   font-family: "Trebuchet MS", "Gill Sans", "Avenir Next", sans-serif;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  padding: 10px 0 !important;
-  background: transparent !important;
-  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.taste-links .nav-link::after,
-.taste-links .dropdown-toggle::after {
-  transition: all 0.2s ease;
-}
-
-.taste-links .nav-link:not(.dropdown-toggle)::after {
+.taste-links a::after,
+.menu-trigger::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -75,66 +65,67 @@
   transition: width 0.25s ease;
 }
 
-.taste-links .nav-link:not(.dropdown-toggle):hover::after {
+.taste-links a:hover::after,
+.menu-trigger:hover::after {
   width: 100%;
 }
 
-.taste-links .nav-link:hover,
-.taste-links .dropdown-toggle:hover {
-  color: #e56600 !important;
+.taste-links a:hover,
+.menu-trigger:hover {
+  color: #e56600;
 }
 
-.dropdown-menu {
-  margin-top: 10px !important;
-  padding: 8px !important;
-  background: #fcedd5 !important;
-  border: 1px solid rgba(16, 47, 99, 0.15) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 12px 28px rgba(16, 47, 99, 0.12) !important;
-}
-
-.dropdown-item {
-  color: #102f63 !important;
-  font-family: "Trebuchet MS", "Gill Sans", "Avenir Next", sans-serif;
-  font-weight: 700 !important;
-  border-radius: 8px;
-  padding: 9px 14px !important;
-}
-
-.dropdown-item:hover {
-  background: #e56600 !important;
-  color: #ffffff !important;
-}
-
-/* ================================
-   PRAYER FLAG HAMBURGER
-================================ */
-
-.taste-toggle {
-  width: 72px;
-  height: 58px;
-  padding: 0 !important;
-  border: 2px solid rgba(16, 47, 99, 0.22) !important;
-  border-radius: 10px;
-  background: rgba(255, 248, 236, 0.88) !important;
-  box-shadow: 0 6px 18px rgba(42, 25, 10, 0.08) !important;
+.menu-link-wrap {
   position: relative;
 }
 
-.taste-toggle:focus,
-.taste-toggle:focus-visible,
-.taste-toggle:active,
-.navbar-toggler:focus,
-.navbar-toggler:focus-visible,
-.navbar-toggler:active {
-  outline: none !important;
-  box-shadow: 0 6px 18px rgba(42, 25, 10, 0.08) !important;
+.menu-dropdown {
+  position: absolute;
+  top: 42px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 172px;
+  padding: 8px;
+  background: #fcedd5;
+  border: 1px solid rgba(16, 47, 99, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(16, 47, 99, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 5000;
 }
 
-.taste-toggle .navbar-toggler-icon {
+.menu-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.menu-dropdown a::after {
   display: none;
 }
 
+.menu-dropdown a:hover {
+  color: #ffffff;
+  background: #e56600;
+}
+
+.taste-toggle {
+  display: none;
+}
+
+/* prayer flag hamburger */
 .prayer-hamburger {
   width: 48px;
   height: 34px;
@@ -148,7 +139,6 @@
   left: 0;
   width: 48px;
   height: 10px;
-  transition: transform 0.28s ease;
 }
 
 .prayer-row-one {
@@ -159,10 +149,6 @@
 .prayer-row-two {
   top: 20px;
   transform: rotate(1deg);
-}
-
-.prayer-row-three {
-  display: none;
 }
 
 .prayer-rope {
@@ -181,7 +167,6 @@
   width: 6px;
   height: 8px;
   clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
-  transform-origin: top center;
 }
 
 .prayer-flag:nth-child(2) {
@@ -224,34 +209,16 @@
   background: #e56600;
 }
 
-.taste-toggle:hover .prayer-row-one {
-  transform: translateY(-1px) rotate(-4deg);
-}
-
-.taste-toggle:hover .prayer-row-two {
-  transform: rotate(2deg);
-}
-
-.taste-toggle[aria-expanded="true"] .prayer-row-one {
-  transform: translateY(2px) rotate(3deg);
-}
-
-.taste-toggle[aria-expanded="true"] .prayer-row-two {
-  transform: translateX(2px) rotate(-2deg);
-}
-
-/* ================================
-   MOBILE NAV
-================================ */
-
+/* mobile */
 @media (max-width: 991px) {
   .navbar-main {
     height: auto;
   }
 
   .taste-navbar {
-    height: auto;
     min-height: 76px;
+    height: auto;
+    flex-wrap: wrap;
     padding: 5px 4%;
   }
 
@@ -263,62 +230,58 @@
     width: 120px;
   }
 
+  .taste-toggle {
+    width: 72px;
+    height: 58px;
+    padding: 0;
+    border: 2px solid rgba(16, 47, 99, 0.22);
+    border-radius: 10px;
+    background: rgba(255, 248, 236, 0.88);
+    box-shadow: 0 6px 18px rgba(42, 25, 10, 0.08);
+    display: block;
+    cursor: pointer;
+  }
+
   .taste-links {
-    gap: 8px;
-    padding: 14px 0 10px;
-  }
-
-  .taste-links .nav-link,
-  .taste-links .dropdown-toggle {
-    font-size: 14px;
-    padding: 8px 0 !important;
-  }
-
-  #taste-navbar-nav {
+    display: none;
     width: 100%;
-    margin-top: 4px;
-    padding: 6px 18px 12px;
+    margin-left: 0;
+    padding: 8px 18px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     background: rgba(252, 237, 213, 0.98);
     border-top: 1px solid rgba(16, 47, 99, 0.12);
   }
 
-  #taste-navbar-nav .taste-links {
-    width: 100%;
-    margin-left: 0;
-    align-items: stretch;
-    gap: 0;
-    padding: 0 18px 4px;
+  .taste-links.open {
+    display: flex;
   }
 
-  #taste-navbar-nav .nav-link,
-  #taste-navbar-nav .dropdown-toggle {
+  .taste-links a,
+  .menu-trigger {
     width: 100%;
-    padding: 9px 4px !important;
+    padding: 10px 4px;
     text-align: center;
-    color: #102f63 !important;
     font-size: 15px;
     letter-spacing: 2px;
-    line-height: 1.2;
     border-bottom: 1px solid rgba(16, 47, 99, 0.1);
   }
 
-  #taste-navbar-nav .nav-link:hover,
-  #taste-navbar-nav .dropdown-toggle:hover {
-    color: #e56600 !important;
+  .menu-dropdown {
+    position: static;
+    transform: none;
+    min-width: 0;
+    margin: 4px auto 8px;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    pointer-events: auto;
+    box-shadow: none;
   }
 
-  #taste-navbar-nav .dropdown-menu {
-    margin: 2px auto 6px !important;
-    padding: 5px !important;
-    max-width: 280px;
-    text-align: center;
-    background: rgba(255, 248, 236, 0.96) !important;
-    border: 1px solid rgba(16, 47, 99, 0.12) !important;
-    box-shadow: none !important;
-  }
-
-  #taste-navbar-nav .dropdown-item {
-    text-align: center;
-    padding: 9px 12px !important;
+  .menu-dropdown.show {
+    display: block;
+    transform: none;
   }
 }
