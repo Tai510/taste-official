@@ -1,376 +1,276 @@
 import React from "react";
+import "./Menu.css";
+
+const menuData = {
+  appetizers: [
+    [
+      "Pakoras",
+      "Mixed deep-fried vegetable fritters served with mint sauce.",
+      "$7",
+    ],
+    [
+      "Samosas",
+      "Two crisp patties stuffed with spiced potatoes and green peas, served with mint sauce.",
+      "$7",
+    ],
+    [
+      "Himalayan Salad",
+      "Spring mix, cucumbers, radishes, carrots, tomatoes, and homemade dressing.",
+      "$8",
+    ],
+    [
+      "Chicken Chili",
+      "Pan-fried chicken strips with green chili, onion, bell peppers, and spices.",
+      "$9",
+    ],
+    [
+      "Shekwa",
+      "Tandoored lamb tenderloin bites with spices and fresh vegetables.",
+      "$10",
+    ],
+    [
+      "Veggie Momo",
+      "Steamed vegetable dumplings served with tomato chutney.",
+      "$9",
+    ],
+    ["Lamb Momo", "Steamed lamb dumplings served with tomato chutney.", "$11"],
+    [
+      "Daal",
+      "Split pea soup served with steamed basmati rice or naan bread.",
+      "$8",
+    ],
+  ],
+
+  tarkari: [
+    [
+      "Mismas Tarkari",
+      "Mixed vegetables cooked in onion and tomato gravy.",
+      "$13",
+    ],
+    [
+      "Alu Cauli",
+      "Potatoes, cauliflower, and peas with onion and tomato gravy.",
+      "$13",
+    ],
+    [
+      "Alu Bhanta",
+      "Himalayan-style eggplant and potatoes in curry sauce.",
+      "$13",
+    ],
+    ["Chana Masala", "Sautéed chickpeas with herbs in an onion gravy.", "$13"],
+    ["Saag Paneer", "Creamy spinach curry with fresh paneer cheese.", "$14"],
+    [
+      "Vegan Saag Paneer",
+      "Creamy spinach curry prepared without paneer.",
+      "$14",
+    ],
+    [
+      "Chicken Chili",
+      "Pan-fried chicken strips with peppers, onion, and jalapeño.",
+      "$14",
+    ],
+    [
+      "Shekwa",
+      "Tandoored lamb cubes with peppers, onion, spinach, and spices.",
+      "$14",
+    ],
+    ["Kukra Saag", "Boneless dark-meat chicken and spinach curry.", "$16"],
+    ["Luksha", "Slow-cooked lamb and potato curry.", "$17"],
+    ["Macha Tarkari", "Garlic, ginger, tomatoes, and salmon curry.", "$14"],
+    ["Shrimp Tarkari", "Garlic, ginger, tomatoes, and shrimp curry.", "$14"],
+  ],
+
+  tandoori: [
+    [
+      "Chicken Tandoori",
+      "Bone-in chicken marinated and broiled in the tandoor oven.",
+      "$14",
+    ],
+    [
+      "Salmon Tandoori",
+      "Salmon cubes marinated and broiled in the tandoor oven.",
+      "$15",
+    ],
+    [
+      "Tandoori Tikka",
+      "Boneless chicken breast marinated and broiled in the tandoor oven.",
+      "$14",
+    ],
+    [
+      "Lamb Tandoori",
+      "Boneless lamb cubes marinated and broiled in the tandoor oven.",
+      "$15",
+    ],
+    [
+      "Rack of Lamb",
+      "Rack of lamb marinated in spices and broiled in the tandoor oven.",
+      "$16",
+    ],
+  ],
+
+  sides: [
+    ["Plain Naan", "$4"],
+    ["Garlic Cilantro Naan", "$4.50"],
+    ["Garlic Basil Naan", "$4.50"],
+    ["Papad", "$4"],
+    ["Raita", "$4"],
+    ["Mango Chutney", "$4"],
+    ["Mixed Pickles", "$3"],
+    ["Steamed Basmati Rice", "$4"],
+    ["Mint Sauce", "$1"],
+    ["Hot Sauce", "$1"],
+  ],
+
+  beverages: [
+    ["Mango Lassi", "$5"],
+    ["Fresh Lemonade", "$3"],
+    ["Tea Herbal/Spiced", "$3"],
+    ["Chai", "$5"],
+    ["Sparkling Water", "$6"],
+    ["Coke", "$3"],
+    ["Diet Coke", "$3"],
+    ["Sprite", "$3"],
+  ],
+
+  desserts: [
+    ["Kheer", "Traditional rice pudding.", "$4"],
+    ["Gulab Jamun", "Fried cheese balls with cardamom honey syrup.", "$4"],
+  ],
+};
+
+const tikkaOptions = [
+  ["Paneer", "$14"],
+  ["Vegetable", "$14"],
+  ["Salmon", "$14"],
+  ["Shrimp", "$14"],
+  ["Chicken", "$15"],
+  ["Lamb", "$16"],
+];
+
+const cocoOptions = [
+  ["Vegetable", "$14"],
+  ["Paneer", "$14"],
+  ["Salmon", "$14"],
+  ["Shrimp", "$14"],
+  ["Chicken", "$15"],
+  ["Lamb", "$16"],
+];
+
+const PosterSection = ({ title, items }) => {
+  return (
+    <section className="poster-section">
+      <h2>{title}</h2>
+
+      {items.map(([name, description, price]) => (
+        <article className="poster-item" key={`${title}-${name}`}>
+          <div>
+            <h3>{name}</h3>
+            {description && <p>{description}</p>}
+          </div>
+
+          <strong>{price}</strong>
+        </article>
+      ))}
+    </section>
+  );
+};
+
+const CompactSection = ({ title, items }) => {
+  return (
+    <section className="poster-section compact">
+      <h2>{title}</h2>
+
+      <div className="compact-grid">
+        {items.map(([name, price]) => (
+          <div className="compact-item" key={`${title}-${name}`}>
+            <span>{name}</span>
+            <strong>{price}</strong>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const MasalaBox = ({ title, description, options }) => {
+  return (
+    <article className="masala-box">
+      <h3>{title}</h3>
+      <p>{description}</p>
+
+      {options.map(([name, price]) => (
+        <div key={`${title}-${name}`}>
+          <span>{name}</span>
+          <strong>{price}</strong>
+        </div>
+      ))}
+    </article>
+  );
+};
 
 const LunchMenu = () => {
   return (
-    <div className="menu-app">
-      <div className="nav-background"></div>
-
-      <div className="restaurant-collage">
-        <div className="restaurant-collage-1"></div>
-        <div className="restaurant-collage-2"></div>
-        <div className="restaurant-collage-3"></div>
-        <div className="restaurant-collage-4"></div>
-        <div className="restaurant-collage-5"></div>
-        <div className="restaurant-collage-6"></div>
-        <div className="restaurant-collage-7"></div>
-      </div>
-
-      <div className="menu-title">
-        <h1>Lunch Special</h1>
-        <h4>- Dine in only -</h4>
-        <p>
-          Served with daal, naan, rice, papad{" "}
-          <span>( no subsititutions, sorry )</span>
-        </p>
-      </div>
-      <div className="categories">
-        <div>
-          <h2>Appetizers</h2>
+    <main className="menu-app">
+      <section className="menu-poster">
+        <div className="poster-hero">
+          <img
+            src="/images/menu-hero.png"
+            alt="Himalayan mountains and stupa"
+          />
         </div>
 
-        <div>
+        <header className="poster-title">
+          <p>Taste of the Himalayas</p>
+
+          <h1>Lunch Special</h1>
+
+          <h4>Dine in only</h4>
+
+          <h4>
+            Served with daal, naan, rice, and papad. No substitutions, sorry.
+          </h4>
+        </header>
+
+        <div className="poster-columns">
           <div>
-            <h3>Pakoras</h3>
-            <p>mixed deep fried vegetable fritters served with mint sauce</p>
-            <p>$7</p>
+            <PosterSection title="Appetizers" items={menuData.appetizers} />
+
+            <PosterSection
+              title="Tarkari (Curry Dishes)"
+              items={menuData.tarkari}
+            />
+
+            <CompactSection title="Sides" items={menuData.sides} />
           </div>
 
           <div>
-            <h3>Samosas</h3>
-            <p>
-              2 crisp patties stuffed spiced potatoes and green peas, served
-              with mint sauce
-            </p>
-            <p>$7</p>
-          </div>
+            <PosterSection title="Tandoori" items={menuData.tandoori} />
 
-          <div>
-            <h3>Himalayan Salad</h3>
-            <p>
-              spring mix, cucumbers, radishes, carrots, tomatoes w/homemade
-              dressing
-            </p>
-            <p>$8</p>
-          </div>
+            <div className="masala-grid">
+              <MasalaBox
+                title="Tikka Masala"
+                description="Slow-cooked creamy sauce with:"
+                options={tikkaOptions}
+              />
 
-          <div>
-            <h3>Chicken Chili</h3>
-            <p>
-              pan-fried chicken strips with green chili, onion, bell peppers &
-              spices
-            </p>
-            <p>$9</p>
-          </div>
-
-          <div>
-            <h3>Shekwa</h3>
-            <p>
-              tandoored lamb tenderloin bits with spices and fresh vegetables
-            </p>
-            <p>$10</p>
-          </div>
-
-          <div>
-            <h3>Veggie Momo</h3>
-            <p>steamed vegetable dumplings, tomato chutney</p>
-            <p>$9</p>
-          </div>
-
-          <div>
-            <h3>Lamb Momo</h3>
-            <p>steamed lamb dumplings, tomato chutney</p>
-            <p>$11</p>
-          </div>
-
-          <div>
-            <h3>Daal</h3>
-            <p>
-              a bowl of split pea soup with steamed basmati rice or naan bread
-            </p>
-            <p>$8</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="categories">
-        <div>
-          <h2>Tarkari(Curry Dishes)</h2>
-        </div>
-
-        <div className="curry">
-          <div>
-            <h3>Mismas Tarkari</h3>
-            <p>mixed vegetables cooked in onion and tomato gravy</p>
-            <p>$13</p>
-          </div>
-
-          <div>
-            <h3>Alu Cauli</h3>
-            <p>potatoes, cauliflower & peas with onion and tomato gravy</p>
-            <p>$13</p>
-          </div>
-
-          <div>
-            <h3>Alu Bhanta</h3>
-            <p>himalayan style cubes of eggplant & potatoes in curry sauce</p>
-            <p>$13</p>
-          </div>
-
-          <div>
-            <h3>Chana Masala</h3>
-            <p>sautéed chick chick peas with herbs in an onion gravy</p>
-            <p>$13</p>
-          </div>
-
-          <div>
-            <h3>Saag Paneer</h3>
-            <p>creamy spinach curry, fresh cheese (paneer)</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Vegan Saag Paneer</h3>
-            <p>creamy spinach curry with no paneer</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Chicken Chille</h3>
-            <p>pan fried chicken strips, peepers, onion, jalapenio</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Shekwa</h3>
-            <p>tandoored lamb cubes, peppers, onion, spinach, spices</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Kukra Saag</h3>
-            <p>boneless chicken(dark meat) & spincach curry</p>
-            <p>$16</p>
-          </div>
-
-          <div>
-            <h3>Luksha</h3>
-            <p>slow-cooked lamb & potato curry</p>
-            <p>$17</p>
-          </div>
-
-          <div>
-            <h3>Macha Tarkari</h3>
-            <p>garlic, ginger, tomatoes & salmon curry</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Shrimp Tarkari</h3>
-            <p>garlic, ginger, tomatoes & shrimp curry</p>
-            <p>$14</p>
-          </div>
-
-          <div className="tikka-option">
-            <div>
-              <h3>Tikka Masala</h3>
-              <p>slow cooked creamy sauce with:</p>
+              <MasalaBox
+                title="Coco Masala"
+                description="Slow-cooked creamy coconut sauce with:"
+                options={cocoOptions}
+              />
             </div>
 
-            <div className="add-ons">
-              <h5>Paneer 14</h5>
-              <h5>Vegetable 14</h5>
-              <h5>Salmon 14</h5>
-              <h5>Shrimp 14</h5>
-              <h5>Chicken 15</h5>
-              <h5>Lamb 16</h5>
-            </div>
-          </div>
+            <CompactSection title="Beverages" items={menuData.beverages} />
 
-          <div className="coco-option">
-            <div>
-              <h3>Coco Masala</h3>
-              <p>slow cooked creamy coconut sauce with:</p>
-            </div>
-
-            <div className="add-ons">
-              <h5>Salmon 14</h5>
-              <h5>Shrimp 14</h5>
-              <h5>Vegetable 14</h5>
-              <h5>Paneer 14</h5>
-              <h5>Chicken 15</h5>
-              <h5>Lamb 16</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="categories">
-        <div>
-          <h2>Tandoori</h2>
-        </div>
-
-        <div>
-          <div>
-            <h3>Chicken Tandoori</h3>
-            <p>chicken with bones marinated & broiled in tandoor oven</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Salmon Tandoori</h3>
-            <p>salmon cubes marinated & broiled in tandoor oven</p>
-            <p>$15</p>
-          </div>
-
-          <div>
-            <h3>Tandoori Tikka</h3>
-            <p>boneless chicken breast marinated & broiled in tandoor oven</p>
-            <p>$14</p>
-          </div>
-
-          <div>
-            <h3>Lamb Tandoori</h3>
-            <p>cubes of boneless lamb marinated & broiled in tandoor oven</p>
-            <p>$15</p>
-          </div>
-
-          <div>
-            <h3>Rack Of Lamb</h3>
-            <p>rack of lamb marinated in spices, broiled in tandoori oven</p>
-            <p>$16</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="categories">
-        <div classname="options">
-          <h2>Desert</h2>
-        </div>
-
-        <div className="side-orders">
-          <div>
-            <h3>Kheer</h3>
-            <p>traditional rice pudding</p>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Gulab Jamun</h3>
-            <p>fried cheese balls, cardamon honey syrup</p>
-            <p>$4</p>
+            <PosterSection title="Dessert" items={menuData.desserts} />
           </div>
         </div>
 
-        <div>
-          <h2>Side Orders</h2>
-        </div>
-
-        <div className="side-orders">
-          <div>
-            <h3>Plain Naan</h3>
-            <p>traditionally baked bread in tandoor oven</p>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Garlic Cilantro Naan</h3>
-            <p>garlic and cilantro spiced naan</p>
-            <p>$4.50</p>
-          </div>
-
-          <div>
-            <h3>Garlic Basil Naan</h3>
-            <p>garlic and basil spiced naan</p>
-            <p>$4.50</p>
-          </div>
-
-          <div>
-            <h3>Papad</h3>
-            <p>deep fried, baked flat lentin wafers (papadam)</p>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Raita</h3>
-            <p>yogurt with cucumber, mint and spices</p>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Mango Chutney</h3>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Mixed Pickles</h3>
-            <p>$3</p>
-          </div>
-
-          <div>
-            <h3>Steamed Basmati Rice</h3>
-            <p>$4</p>
-          </div>
-
-          <div>
-            <h3>Mint Sauce</h3>
-            <p>$1</p>
-          </div>
-
-          <div>
-            <h3>Hot Sauce</h3>
-            <p>$1</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="categories">
-        <div>
-          <h2>Beverage</h2>
-        </div>
-
-        <div className="side-orders">
-          <div className="beverage-price">
-            <h4>Mango Lassi</h4>
-            <p>$5</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Fresh Lemonade</h4>
-            <p>$3</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Tea Herbal/Spiced (Hot/Iced)</h4>
-            <p>$3</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Chai (Hot/Iced)</h4>
-            <p>$5</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Sparkling Water</h4>
-            <p>$6</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Coke</h4>
-            <p>$3</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Diet Coke</h4>
-            <p>$3</p>
-          </div>
-
-          <div className="beverage-price">
-            <h4>Sprite</h4>
-            <p>$3</p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <footer className="poster-footer">
+          Please inform your server of any allergies.
+        </footer>
+      </section>
+    </main>
   );
 };
 

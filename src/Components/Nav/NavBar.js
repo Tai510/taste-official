@@ -1,48 +1,68 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const closeTimerRef = useRef(null);
+  const history = useHistory();
+  const location = useLocation();
 
-  const clearCloseTimer = () => {
+  const closeAll = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
-      closeTimerRef.current = null;
     }
+
+    setMobileOpen(false);
+    setMenuOpen(false);
   };
 
   const openMenu = () => {
-    clearCloseTimer();
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+
     setMenuOpen(true);
   };
 
-  const scheduleCloseMenu = () => {
-    clearCloseTimer();
+  const closeMenuSoon = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
 
     closeTimerRef.current = setTimeout(() => {
       setMenuOpen(false);
     }, 220);
   };
 
-  const toggleMenu = () => {
-    clearCloseTimer();
-    setMenuOpen((open) => !open);
+  const scrollToOurStory = () => {
+    const ourStory = document.getElementById("our-story");
+
+    if (!ourStory) {
+      return;
+    }
+
+    ourStory.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
-  const closeAll = () => {
-    clearCloseTimer();
-    setMobileOpen(false);
-    setMenuOpen(false);
-  };
+  const handleExplore = (event) => {
+    event.preventDefault();
+    closeAll();
 
-  const toggleMobileMenu = () => {
-    clearCloseTimer();
-    setMobileOpen((open) => !open);
-    setMenuOpen(false);
+    if (location.pathname === "/") {
+      scrollToOurStory();
+      return;
+    }
+
+    history.push("/");
+
+    setTimeout(() => {
+      scrollToOurStory();
+    }, 180);
   };
 
   return (
@@ -55,7 +75,10 @@ const NavBar = () => {
         <button
           type="button"
           className="taste-toggle"
-          onClick={toggleMobileMenu}
+          onClick={() => {
+            setMobileOpen((open) => !open);
+            setMenuOpen(false);
+          }}
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
         >
@@ -88,24 +111,18 @@ const NavBar = () => {
           <div
             className="menu-link-wrap"
             onMouseEnter={openMenu}
-            onMouseLeave={scheduleCloseMenu}
+            onMouseLeave={closeMenuSoon}
           >
             <button
               type="button"
               className="menu-trigger"
-              onClick={toggleMenu}
-              onMouseEnter={openMenu}
+              onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
-              aria-haspopup="true"
             >
               Menu
             </button>
 
-            <div
-              className={`menu-dropdown ${menuOpen ? "show" : ""}`}
-              onMouseEnter={openMenu}
-              onMouseLeave={scheduleCloseMenu}
-            >
+            <div className={`menu-dropdown ${menuOpen ? "show" : ""}`}>
               <Link to="/lunch-menu" onClick={closeAll}>
                 Lunch Menu
               </Link>
@@ -114,15 +131,19 @@ const NavBar = () => {
                 Dinner Menu
               </Link>
 
+              <Link to="/take-out" onClick={closeAll}>
+                To-Go Menu
+              </Link>
+
               <Link to="/wine-list" onClick={closeAll}>
                 Wine List
               </Link>
             </div>
           </div>
 
-          <Link to="/take-out" onClick={closeAll}>
-            Take-Out
-          </Link>
+          <a href="/#our-story" onClick={handleExplore}>
+            Explore
+          </a>
 
           <Link to="/contact" onClick={closeAll}>
             Contact

@@ -1,161 +1,92 @@
 import React from "react";
-import "./Wine.css";
+import "./Menu.css";
+
+const wineData = {
+  white: [
+    ["Albini Pinot Grigio", "Sonoma Valley, 2018", "9 / 36"],
+    ["MacTostie Chardonnay", "Sonoma Coast, 2017", "11 / 24"],
+    ["Laurier Chardonnay", "Carneros Sonoma, 2013", "8 / 32"],
+    ["Roche Chardonnay", "Carneros Sonoma, 2016", "11 / 44"],
+    ["Robledo Sauvignon Blanc", "Lake County, 2016", "10 / 40"],
+    ["Cline Viognier", "North Coast, 2018", "9 / 36"],
+    ["Robledo Riesling", "Lake County, 2013", "9 / 36"],
+    ["Domain Laurer Brut", "187ml", "9"],
+    ["Gloria Ferrer Blanc de Noirs", ".5 bottle", "20"],
+    ["Sangria", "", "7"],
+    ["House White", "", "7"],
+  ],
+
+  red: [
+    ["Robledo Tempranillo", "Napa Valley, 2017", "11 / 44"],
+    ["Albini Cabernet Franc", "Sonoma Valley, 2014", "36"],
+    ["Enira Verdot Blend", "Bessa Valley Bulgaria, 2010", "26"],
+    ["Laurier Pinot Noir", "Carneros, 2016", "9 / 36"],
+    ["Casa Carneros Pinot Noir", "Carneros, 2007", "36"],
+    ["Lesse Fitch Merlot", "California, 2016", "8 / 32"],
+    ["Roche Merlot", "Carneros, 2014", "44"],
+    ["Thirty-Seven Syrah", "Sonoma Coast, 2014", "9 / 36"],
+    ["Thirty-Seven Tolay", "Sonoma Coast, 2014", "38"],
+    ["Hwy 12 Cabernet", "Sonoma County, 2016", "9 / 36"],
+    ["Plungerhead Old Vine Zinfandel", "Lodi, 2018", "8 / 32"],
+    ["Lesse Fitch Zinfandel", "California, 2015", "28"],
+    ["House Red", "", "7"],
+  ],
+};
+
+const WineSection = ({ title, items }) => {
+  return (
+    <section className="poster-section">
+      <h2>{title}</h2>
+
+      {items.map(([name, description, price]) => (
+        <article className="poster-item" key={`${title}-${name}`}>
+          <div>
+            <h3>{name}</h3>
+            {description && <p>{description}</p>}
+          </div>
+
+          <strong>{price}</strong>
+        </article>
+      ))}
+    </section>
+  );
+};
 
 const WineList = () => {
   return (
-    <div className="menu-app">
-        
-      <div className="nav-background"></div>
-      <div className="restaurant-collage">
-        <div className="restaurant-collage-1"></div>
-        <div className="restaurant-collage-2"></div>
-        <div className="restaurant-collage-3"></div>
-        <div className="restaurant-collage-4"></div>
-        <div className="restaurant-collage-5"></div>
-        <div className="restaurant-collage-6"></div>
-        <div className="restaurant-collage-7"></div>
-      </div>
-
-      <div className="menu-title">
-        <h1>Wine List</h1>
-        <p>( Corkage $10 )</p>
-      </div>
-      <div className="wine-categories">
-        <div>
-          <h2>White & Chilled</h2>
+    <main className="menu-app">
+      <section className="menu-poster">
+        <div className="poster-hero">
+          <img
+            src="/images/menu-hero.png"
+            alt="Himalayan mountains and stupa"
+          />
         </div>
 
-        <div>
+        <header className="poster-title">
+          <p>Taste of the Himalayas</p>
+
+          <h1>Wine List</h1>
+
+          <h4>Corkage $10</h4>
+          <h4>Glass / Bottle</h4>
+        </header>
+
+        <div className="poster-columns">
           <div>
-            <h3>Albini Pinot Grigio, Sonoma Valley 2018</h3>
-            <p>9/36</p>
+            <WineSection title="White & Chilled" items={wineData.white} />
           </div>
 
           <div>
-            <h3>MacTostie Chardonnay, Sonoma Coast 2017</h3>
-            <p>11/24</p>
-          </div>
-
-          <div>
-            <h3>Laurier Chardonnay, Carneros Sonoma 2013</h3>
-            <p>8/32</p>
-          </div>
-
-          <div>
-            <h3>Roche Chardonnay, Carneros Sonoma 2016</h3>
-            <p>11/44</p>
-          </div>
-
-          <div>
-            <h3>Robledo Sauvignon Blanc, Lake County 2016</h3>
-            <p>10/40</p>
-          </div>
-
-          <div>
-            <h3>Cline Viognier, North Coast 2018</h3>
-            <p>9/36</p>
-          </div>
-
-          <div>
-            <h3>Robledo Riesling, Lake County 2013</h3>
-            <p>9/36</p>
-          </div>
-
-          <div>
-            <h3>Domain Laurer Brut 187ml</h3>
-            <p>9</p>
-          </div>
-
-          <div>
-            <h3>Gloria Ferrer, Blanc de Noirs .5BTL</h3>
-            <p>20</p>
-          </div>
-
-          <div>
-            <h3>Sangria</h3>
-            <p>7</p>
-          </div>
-
-          <div>
-            <h3>House White</h3>
-            <p>7</p>
+            <WineSection title="Red" items={wineData.red} />
           </div>
         </div>
-      </div>
 
-      <div className="wine-categories">
-        <div>
-          <h2>Red</h2>
-        </div>
-
-        <div>
-          <div>
-            <h3>Robledo Tempranillo, Napa Valley 2017</h3>
-            <p>11/44</p>
-          </div>
-
-          <div>
-            <h3>Albini Cabernet Franc, Sonoma Valley 2014</h3>
-            <p>36</p>
-          </div>
-
-          <div>
-            <h3>Enira Verdot blend, Bessa Valley Bulgaria 2010</h3>
-            <p>26</p>
-          </div>
-
-          <div>
-            <h3>Laurier Pinot Noir, Carneros 2016</h3>
-            <p>9/36</p>
-          </div>
-
-          <div>
-            <h3>Casa Carneros Pinot Noir Carneros 2007</h3>
-            <p>36</p>
-          </div>
-
-          <div>
-            <h3>Lesse Fitch Merlot, California 2016</h3>
-            <p>8/32</p>
-          </div>
-
-          <div>
-            <h3>Roche Merlot, Carneros 2014</h3>
-            <p>44</p>
-          </div>
-
-          <div>
-            <h3>Thirty-seven Syrah, Sonoma Coast 2014</h3>
-            <p>9/36</p>
-          </div>
-
-          <div>
-            <h3>Thirty-seven Tolay, Sonoma Coast 2014</h3>
-            <p>38</p>
-          </div>
-
-          <div>
-            <h3>Hwy 12 Cabernet, Sonoma County 2016</h3>
-            <p>9/36</p>
-          </div>
-
-          <div>
-            <h3>Plungerhead Old Vine Zinfandel, Lodi 2018</h3>
-            <p>8/32</p>
-          </div>
-
-          <div>
-            <h3>Lesse Fitch Zinfandel, California 2015</h3>
-            <p>28</p>
-          </div>
-
-          <div>
-            <h3>House Red</h3>
-            <p>7</p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <footer className="poster-footer">
+          Please ask your server about current availability.
+        </footer>
+      </section>
+    </main>
   );
 };
 
