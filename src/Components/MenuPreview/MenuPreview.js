@@ -36,8 +36,14 @@ const MenuPreview = () => {
               <strong>→</strong>
             </Link>
 
-            <Link to="/wine-list">
+            <Link to="/take-out">
               <span>03</span>
+              To-Go Menu
+              <strong>→</strong>
+            </Link>
+
+            <Link to="/wine-list">
+              <span>04</span>
               Wine List
               <strong>→</strong>
             </Link>
