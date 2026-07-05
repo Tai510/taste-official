@@ -291,15 +291,15 @@ const HistoricImagePage = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  background: #0a1931;
+  overflow: hidden;
+  background: #075457;
 
   img {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: contain;
-    padding: 12px;
-    background: #0a1931;
+    object-fit: cover;
+    object-position: center;
   }
 
   .historic-note {
@@ -309,8 +309,8 @@ const HistoricImagePage = styled.div`
     bottom: 16px;
     padding: 10px 14px;
     border-radius: 14px;
-    color: rgba(255, 248, 236, 0.9);
-    background: rgba(7, 20, 42, 0.78);
+    color: rgba(255, 248, 236, 0.94);
+    background: rgba(4, 49, 51, 0.84);
     backdrop-filter: blur(7px);
     font-size: 12px;
     line-height: 1.4;
@@ -678,7 +678,7 @@ const HistoricMenuExperience = () => {
                 <FlipPage>
                   <HistoricImagePage>
                     <img
-                      src="/images/historic-menu-neon.png"
+                      src="/images/historic-menu-book-cover.png"
                       alt="Enhanced recreated historic Taste of the Himalayas menu"
                     />
 
